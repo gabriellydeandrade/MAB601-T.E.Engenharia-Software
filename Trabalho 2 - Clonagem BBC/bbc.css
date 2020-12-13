@@ -18,10 +18,10 @@
             #logo {
                 
                 margin-top:8px;
-                width:100px;
+                width:90px;
                 float:left;
                 margin-right:8px;
-                
+                filter: brightness(0%);
             }
             
             .topbar-section {
@@ -34,10 +34,9 @@
             
             #signin-image {
                 
-                width:25px;
-                margin:11px 15px ;
+                width:20px;
+                margin:11px 7px 11px 17px;
                 float:left;
-                
             }
             
             #signin-text {
@@ -46,7 +45,7 @@
                 font-size:90%;
                 position:relative;
                 top:14px;
-                padding-right:50px;
+                padding-right:110px;
             }
             
             #wigglyline {
@@ -72,8 +71,9 @@
             .topbar-menu {
                 
                 font-weight: bold;
+                color: #444;
                 font-size: 90%;
-                padding: 13px 15px 0 15px;
+                padding: 15px 18px 0 18px;
                 height:27px;
                 
             }
@@ -81,13 +81,14 @@
             #more-arrow {
                 
                 width:16px;
-                margin-left: 20px;
+                margin-left: 50px;
                 
             }
             
             #search-box {
                 
                 background-color: #E4E4E4;
+                color: #848484;
                 border:none;
                 font-weight: bold;
                 font-size: 14px;
@@ -126,6 +127,14 @@
                 width:1280px;
                 margin:0 auto;
                 
+            }
+
+            ul {
+                margin-top: 40px;
+            }
+
+            li {
+                margin-bottom: 5px;
             }
             
             h1 {
@@ -223,6 +232,10 @@
                 margin: 0 auto;
                 
             }
+
+            p {
+                color: #5a5a5a;
+            }
             
             h2 {
                 
@@ -237,7 +250,7 @@
             h3 a {
                 
                 color:black;
-                font-size: 30px;
+                font-size: 27px;
                 text-decoration: none;
                 
             }
@@ -267,7 +280,7 @@
             .topic-link {
                 
                 text-decoration: none;
-                color:#a91717;
+                color:#5A5A5A;
                 border-left: 1px solid #CCCCCC;
                 padding-left: 10px;
                 
@@ -289,16 +302,14 @@
             #article-container {
                 
                 float:left;
-                width:670px;
-                border-right: 1px solid #CCCCCC;
+                width: 502px;
                 padding-right: 20px;
                 
             }
             
             #main-article-image {
                 
-                width:400px;
-                margin-left:20px;
+                width:520px;
                 
             }
             
@@ -312,6 +323,7 @@
             .article-link {
                 
                 color:black;
+                font-weight: bold;
                 text-decoration:none;
                 
             }
