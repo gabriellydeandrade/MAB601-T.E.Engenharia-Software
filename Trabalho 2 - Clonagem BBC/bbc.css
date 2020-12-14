@@ -208,7 +208,15 @@
             
             #menu-bar-2 a:hover {
                 
-                text-decoration: underline;
+                border-bottom: 5px solid white;
+                padding-bottom: 8px;
+                
+            }
+
+            #menu-selected {
+                
+                border-bottom: 5px solid white;
+                padding-bottom: 18px;
                 
             }
             
