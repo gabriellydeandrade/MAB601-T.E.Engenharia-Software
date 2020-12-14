@@ -17,10 +17,9 @@
             
             #logo {
                 
-                margin-top:8px;
+                margin:8px 20px 0px 0px;
                 width:90px;
                 float:left;
-                margin-right:8px;
                 filter: brightness(0%);
             }
             
@@ -35,7 +34,7 @@
             #signin-image {
                 
                 width:20px;
-                margin:11px 7px 11px 17px;
+                margin:11px 8px 11px 17px;
                 float:left;
             }
             
@@ -45,7 +44,7 @@
                 font-size:90%;
                 position:relative;
                 top:14px;
-                padding-right:110px;
+                padding-right:90px;
             }
             
             #wigglyline {
@@ -93,7 +92,7 @@
                 font-weight: bold;
                 font-size: 14px;
                 padding:5px;
-                margin: 8px 0 5px 5px;
+                margin: 8px 0 5px 20px;
                 width: 160px;
                 height: 24px;
                 float: left;
@@ -250,7 +249,7 @@
             h3 a {
                 
                 color:black;
-                font-size: 27px;
+                font-size: 1.68rem;
                 text-decoration: none;
                 
             }
@@ -309,7 +308,7 @@
             
             #main-article-image {
                 
-                width:520px;
+                width:505px;
                 
             }
             
@@ -329,10 +328,8 @@
             }
             
             #watch-listen {
-                
-                margin-left:20px;
-                width:280px;
-                float:right;
+                padding-top: 17px;
+                text-align: left;
             }
             
             h4 {
@@ -345,8 +342,8 @@
             .article-side-image {
                 
                 float:left;
-                width:90px;
-                margin-right:10px;
+                width:241px;
+                margin-bottom: 20px;
                 
             }
             
@@ -355,7 +352,7 @@
                 text-decoration: none;
                 color:black;
                 font-weight:bold;
-                font-size:18px;
+                font-size:1rem;
                 
             }
             
@@ -367,10 +364,16 @@
             
             .side-article {
                 
-                float:right;
-                width:180px;
+                display:inline-block;
+                width:240px;
                 position:relative;
                 top:-18px;
+                margin-right: 9.6px;
+            }
+
+            .side-article p {
+                font-size: 0.9rem;
+
             }
             
             .no-border {
