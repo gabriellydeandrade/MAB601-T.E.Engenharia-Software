@@ -350,7 +350,7 @@
                 
                 float:left;
                 width:241px;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
                 
             }
             
@@ -366,6 +366,7 @@
             .watch-listen-link:hover {
                 
                 color:#1167a8;
+                text-decoration: underline;
                 
             }
             
@@ -379,8 +380,10 @@
                 margin-bottom: 10px;
             }
 
-            .side-article p {
+            .side-article-text {
                 font-size: 0.9rem;
+                height: 60px;
+                margin-top: 3%;
 
             }
             
