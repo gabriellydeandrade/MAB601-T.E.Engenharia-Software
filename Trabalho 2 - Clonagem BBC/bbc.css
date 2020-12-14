@@ -273,7 +273,6 @@
                 height:15px;
                 position: relative;
                 top:2px;
-                
             }
             
             .topic-link {
@@ -369,6 +368,7 @@
                 position:relative;
                 top:-18px;
                 margin-right: 9.6px;
+                margin-bottom: 10px;
             }
 
             .side-article p {
