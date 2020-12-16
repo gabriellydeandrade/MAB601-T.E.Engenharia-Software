@@ -206,10 +206,10 @@
                 
             }
             
-            #menu-bar-2 a:hover {
+            #menu-bar-2 span:hover {
                 
                 border-bottom: 5px solid white;
-                padding-bottom: 8px;
+                padding-bottom: 18px;
                 
             }
 
