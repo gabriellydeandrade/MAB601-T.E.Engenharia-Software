@@ -1,0 +1,36 @@
+body {
+    background-color: #fff6e4;
+}
+
+header {
+    background-color: #cc9e08;
+    height: 120px;
+}
+
+header > p {
+    color: #FFF;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+header > nav {
+    text-align: center;
+    margin-top: 15px;
+}
+
+header > nav > a {
+    background-color: #6d5300;
+    color: #FFF;
+    text-decoration: none;
+    margin: 20px;
+    padding: 5px;
+}
+
+#circle-conteiner {
+    background-color: #FFF;
+    height: 700px;
+    width: 1300px;
+    margin: 0 auto;
+
+}
