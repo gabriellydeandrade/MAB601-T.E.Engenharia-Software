@@ -4,10 +4,14 @@ body {
 
 header {
     background-color: #cc9e08;
-    height: 120px;
+    height: 140px;
 }
 
-header > p {
+header > p{
+    text-align: center;
+}
+
+header > p:first-child {
     color: #FFF;
     text-align: center;
     font-size: 1.5rem;
@@ -19,11 +23,8 @@ header > nav {
     margin-top: 15px;
 }
 
-header > nav > a {
-    background-color: #6d5300;
-    color: #FFF;
-    text-decoration: none;
-    margin: 20px;
+header > nav > button {
+    margin: 0px 10px;
     padding: 5px;
 }
 
