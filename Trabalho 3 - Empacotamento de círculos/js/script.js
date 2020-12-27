@@ -27,17 +27,60 @@ function generateRandomPoint(){
 }
 
 function calculateDistance(point){
-    dmax = 700;
+    var dmax = 999;
+    var minDistance = 999;
 
-    // if (circles.lenght > 0){
-    //     console.log("lista com conteúdo");
-    // }
-    // else {
-    //     console.log("entrei no else");
-    //     return Math.floor(Math.random() * dmax);
-    // }
+    if (circles.lenght == 0){
+        console.log("entrei no condicional de circulo");
+        return Math.floor(Math.random() * dmax);
+    }
 
-    return Math.floor(Math.random() * dmax);
+
+    // var minDistance = Math.sqrt((circles[0][0] - point[0])**2 + (circles[1][1] - point[1])**2);
+
+    for (i=0; i<circles.length; i++){
+        distance = Math.sqrt((circles[i][0] - point[0])**2 + (circles[i][1] - point[1])**2)
+
+        // Verifica se está dentro de algum círculo
+        if (distance < circles[i][2]){
+            console.log("DEU CIRCULO JA EXISTENTE: " + i);
+            return 0;
+        }
+
+        // xValue = (point[0] >= (circles[i][0] - circles[i][2])) && (point[0] <= (circles[i][0] + circles[i][2]));
+        // yValue = (point[1] >= (circles[i][1] - circles[i][2])) && (point[1] <= (circles[i][1] + circles[i][2]));
+
+        // if (xValue && yValue) {
+        //     console.log("DEU CIRCULO JA EXISTENTE: " + i);
+        //     return 0;
+        // }
+
+
+        // // Calcula eixo x
+        // if ((point[0] >= (circles[i][0] - circles[i][2])) && (point[0] <= (circles[i][0] + circles[i][2]))) {
+
+        //     console.log("DEU X IGUAL: " + i);
+        //     return 0;
+        // }
+
+        // // Calcula eixo y
+        // if ((point[1] >= (circles[i][1] - circles[i][2])) && (point[1] <= (circles[i][1] + circles[i][2]))) {
+        //     console.log("DEU y IGUAL: " + i);
+        //     return 0;
+        // }
+
+        if (distance < minDistance){
+            minDistance = distance;
+        }
+    }
+
+    console.log("diatancia minima: " + minDistance);
+
+    return minDistance;
+
+    
+
+    // return Math.floor(Math.random() * dmax);
 
 }
 
@@ -45,10 +88,16 @@ function generateRandomRadios(x, y, maximunRadios){
 
     minimunRadios = 2;
 
-    radios = Math.floor(Math.random() * maximunRadios) + minimunRadios;
+    radios = Math.floor(Math.random() * (maximunRadios - minimunRadios)) + minimunRadios;
 
-    while ((x + radios > xmax) || (y + radios > ymax)){
-        radios = Math.floor(Math.random() * maximunRadios) + minimunRadios;
+    // xInterval = x + radios > xmax;
+    // xMinInterval = x - radios < 0;
+
+    // yMaxInterval = y + radios > ymax;
+    // yMinInterval = y - radios < 0;
+
+    while ((x - radios*2 < 0) || (x + radios*2 > xmax) || (y - radios*2 < 0) || (y + radios*2 > ymax)){
+        radios = Math.floor(Math.random() * (maximunRadios - minimunRadios)) + minimunRadios;
     }
 
     console.log("raio: " + radios);
@@ -56,24 +105,21 @@ function generateRandomRadios(x, y, maximunRadios){
     return radios;
 }
 
-function createCircle(left, top, width, id){
+function createCircle(left, top, radios, id){
 
     var circle = document.createElement("div");
     circle.id = "circle-" + id;
 
     circle.style.borderRadius = "50%";
     circle.style.backgroundColor = getRandomColor();
-    circle.style.top = top + "px";
-    circle.style.left = left + "px";
-    circle.style.width = width + "px";
-    circle.style.height = width + "px";
+    circle.style.top = (top - radios) + "px";
+    circle.style.left = (left - radios) + "px";
+    circle.style.width = radios*2 + "px";
+    circle.style.height = radios*2 + "px";
     circle.style.display = "block";
     circle.style.position = "absolute";
 
     document.getElementById("circle-container").appendChild(circle);
-
-    console.log(document.getElementById("teste-1"));
-
 }
 
 function drawCircle(){
@@ -105,7 +151,7 @@ function drawCircle(){
 
 
 function poll(){
-    interval = setInterval(drawCircle, 2000);
+    interval = setInterval(drawCircle, 1000);
 }
 
 
@@ -115,11 +161,14 @@ document.getElementById("start").addEventListener("click", function(){
     document.getElementById("circle-container").innerHTML = "";
     document.getElementById("circle-quantity").innerHTML = 0;
     circlesQuantity = 0;
+    circles = [];
     poll();
 });
 
 document.getElementById("pause").onclick = function(){
     pause = !pause;
+
+    console.log("valor de pause: " + pause);
 
     if (pause){
         clearInterval(interval);
