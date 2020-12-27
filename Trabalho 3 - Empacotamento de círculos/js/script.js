@@ -4,6 +4,9 @@ var circlesQuantity = 0;
 var interval;
 var pause = false;
 
+const xmax = 1300;
+const ymax = 700;
+
 
 function getRandomColor() {
 
@@ -16,7 +19,7 @@ function getRandomColor() {
     return color;
 }
 
-function generateRandomPoint(xmax, ymax){
+function generateRandomPoint(){
     x = Math.floor(Math.random() * xmax);
     y = Math.floor(Math.random() * ymax);
 
@@ -39,10 +42,17 @@ function calculateDistance(point){
 }
 
 function generateRandomRadios(x, y, maximunRadios){
-    
-    radios = Math.floor(Math.random() * (maximunRadios - minimunRadios) - minimunRadios);
 
-    // TODO falta fazer validação se o círculo ta dentro do quadrado
+    minimunRadios = 2;
+
+    radios = Math.floor(Math.random() * maximunRadios) + minimunRadios;
+
+    while ((x + radios > xmax) || (y + radios > ymax)){
+        radios = Math.floor(Math.random() * maximunRadios) + minimunRadios;
+    }
+
+    console.log("raio: " + radios);
+
     return radios;
 }
 
@@ -58,6 +68,7 @@ function createCircle(left, top, width, id){
     circle.style.width = width + "px";
     circle.style.height = width + "px";
     circle.style.display = "block";
+    circle.style.position = "absolute";
 
     document.getElementById("circle-container").appendChild(circle);
 
@@ -66,7 +77,7 @@ function createCircle(left, top, width, id){
 }
 
 function drawCircle(){
-    point = generateRandomPoint(1300, 700);
+    point = generateRandomPoint();
     console.log("meu x:" + point[0] + " meu y:" + point[1]);
 
     distance = calculateDistance(point);
@@ -80,7 +91,7 @@ function drawCircle(){
         circlesQuantity += 1;
 
         // Desenha circulo no espaço
-        createCircle(point[1], point[0], radios, circlesQuantity);
+        createCircle(point[0], point[1], radios, circlesQuantity);
         // drawCircle(circles[0][0], circles[0][1], circles[0][2]);
         
         circles.push([point[0], point[1], radios]);

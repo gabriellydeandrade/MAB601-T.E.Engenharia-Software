@@ -33,5 +33,6 @@ header > nav > button {
     height: 700px;
     width: 1300px;
     margin: 0 auto;
+    position: relative;
 
 }
