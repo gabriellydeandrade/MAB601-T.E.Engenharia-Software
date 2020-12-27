@@ -27,12 +27,11 @@ function generateRandomPoint(){
 }
 
 function calculateDistance(point){
-    var dmax = 999;
     var minDistance = 999;
 
     if (circles.lenght == 0){
         console.log("entrei no condicional de circulo");
-        return Math.floor(Math.random() * dmax);
+        return Math.floor(Math.random() * minDistance);
     }
 
 
@@ -46,6 +45,8 @@ function calculateDistance(point){
             console.log("DEU CIRCULO JA EXISTENTE: " + i);
             return 0;
         }
+
+        distance = distance - circles[i][2]; // Distância menos o raio é igual a distância do círculo mais próximo
 
         // xValue = (point[0] >= (circles[i][0] - circles[i][2])) && (point[0] <= (circles[i][0] + circles[i][2]));
         // yValue = (point[1] >= (circles[i][1] - circles[i][2])) && (point[1] <= (circles[i][1] + circles[i][2]));
