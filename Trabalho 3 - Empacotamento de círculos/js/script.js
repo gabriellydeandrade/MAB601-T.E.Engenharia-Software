@@ -1,6 +1,6 @@
 var circles = [];
 var circlesQuantity = 0;
-var interval;
+var interval = null;
 var pause = false;
 
 const minimunRadius = 2;
@@ -102,25 +102,33 @@ function poll(){
     interval = setInterval(drawCircle, 33);
 }
 
-
-document.getElementById("start").addEventListener("click", function(){
-    clearInterval(interval);
+function reset(){
+    if (interval) {
+        clearInterval(interval);
+        interval = null; 
+    }
     document.getElementById("circle-container").innerHTML = "";
     document.getElementById("circle-quantity").innerHTML = 0;
     circlesQuantity = 0;
     circles = [];
+    pause = false;
+}
+
+
+document.getElementById("start").addEventListener("click", function(){
+    reset();
     poll();
 });
 
-document.getElementById("pause").onclick = function(){
+document.getElementById("pause").addEventListener("click", function(){
     pause = !pause;
 
     if (pause){
         clearInterval(interval);
-        
+        interval = null; 
     }
     else {
         poll();
     }
     
-} 
+});
