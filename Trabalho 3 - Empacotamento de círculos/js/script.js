@@ -3,7 +3,7 @@ var circlesQuantity = 0;
 var interval;
 var pause = false;
 
-const minimunRadios = 2;
+const minimunRadius = 2;
 const xmax = 1300;
 const ymax = 700;
 
@@ -41,7 +41,7 @@ function calculateDistance(point){
             return 0;
         }
 
-        distance = distance - circles[i][2]; // Distância menos o raio é igual a distância do círculo mais próximo
+        distance = distance - circles[i][2]; // Distância menos o raio é igual a distância da borda do círculo mais próximo
 
         if (distance < minDistance){
             minDistance = distance;
@@ -51,28 +51,28 @@ function calculateDistance(point){
     return minDistance;
 }
 
-function generateRandomRadios(x, y, maximunRadios){
+function generateRandomRadius(x, y, maximunRadius){
 
-    radios = Math.floor(Math.random() * (maximunRadios - minimunRadios)) + minimunRadios;
+    radius = Math.floor(Math.random() * (maximunRadius - minimunRadius)) + minimunRadius;
 
-    while ((x - radios < 0) || (x + radios > xmax) || (y - radios < 0) || (y + radios > ymax)){
-        radios = Math.floor(Math.random() * (maximunRadios - minimunRadios)) + minimunRadios;
+    while ((x - radius < 0) || (x + radius > xmax) || (y - radius < 0) || (y + radius > ymax)){
+        radius = Math.floor(Math.random() * (maximunRadius - minimunRadius)) + minimunRadius;
     }
 
-    return radios;
+    return radius;
 }
 
-function createCircle(left, top, radios, id){
+function createCircle(left, top, radius, id){
 
     var circle = document.createElement("div");
     circle.id = "circle-" + id;
 
     circle.style.borderRadius = "50%";
     circle.style.backgroundColor = getRandomColor();
-    circle.style.top = (top - radios) + "px";
-    circle.style.left = (left - radios) + "px";
-    circle.style.width = radios*2 + "px";
-    circle.style.height = radios*2 + "px";
+    circle.style.top = (top - radius) + "px";
+    circle.style.left = (left - radius) + "px";
+    circle.style.width = radius*2 + "px";
+    circle.style.height = radius*2 + "px";
     circle.style.display = "block";
     circle.style.position = "absolute";
 
@@ -81,17 +81,17 @@ function createCircle(left, top, radios, id){
 
 function drawCircle(){
     point = generateRandomPoint();
-
     distance = calculateDistance(point);
-    if (distance > minimunRadios){
+    
+    if (distance > minimunRadius){
 
-        radios = generateRandomRadios(point[0], point[1], distance);
+        radius = generateRandomRadius(point[0], point[1], distance);
 
         circlesQuantity += 1;
 
-        createCircle(point[0], point[1], radios, circlesQuantity);
+        createCircle(point[0], point[1], radius, circlesQuantity);
         
-        circles.push([point[0], point[1], radios]);
+        circles.push([point[0], point[1], radius]);
         document.getElementById("circle-quantity").innerHTML = circlesQuantity;
     }
 
@@ -99,7 +99,7 @@ function drawCircle(){
 
 
 function poll(){
-    interval = setInterval(drawCircle, 2000);
+    interval = setInterval(drawCircle, 33);
 }
 
 
