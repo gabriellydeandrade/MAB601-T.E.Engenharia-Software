@@ -20,8 +20,10 @@ function getRandomColor() {
 }
 
 function generateRandomPoint(){
-    x = Math.floor(Math.random() * xmax);
-    y = Math.floor(Math.random() * ymax);
+    // Gera um ponto aleatório entre 2 e tamanho maximo - 2. 
+    // Como o raio mínimo é 2, os valores possíveis deverão estar nesse intervalo.
+    x = Math.floor(Math.random() * (xmax - minimunRadius - 1)) + minimunRadius;
+    y = Math.floor(Math.random() * (ymax - minimunRadius - 1)) + minimunRadius;
 
     return [x, y];
 }
@@ -30,7 +32,7 @@ function calculateDistance(point){
     var minDistance = 999;
 
     if (circles.lenght == 0){
-        return Math.floor(Math.random() * minDistance);
+        return minDistance;
     }
 
     for (i=0; i<circles.length; i++){
@@ -52,9 +54,8 @@ function calculateDistance(point){
 }
 
 function generateRandomRadius(x, y, maximunRadius){
-
     radius = Math.floor(Math.random() * (maximunRadius - minimunRadius)) + minimunRadius;
-
+    
     while ((x - radius < 0) || (x + radius > xmax) || (y - radius < 0) || (y + radius > ymax)){
         radius = Math.floor(Math.random() * (maximunRadius - minimunRadius)) + minimunRadius;
     }
